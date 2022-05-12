@@ -28,11 +28,6 @@ Before you start the exam, you'll be need to write the schema yourself, populate
 	* hash VARCHAR(60) NOT NULL
 	* role VARHCAR(25) DEFAULT 'admin'
 	* _created DATETIME DEFAULT CURRENT_TIMESTAMP
-* Tokens
-	* id INT PK NOT NULL AI
-	* userid INT NOT NULL FK References Users(id)
-	* token TEXT NULL
-	* _created DATETIME DEFAULT CURRENT_TIMESTAMP
 * Categories
 	* id INT PK NOT NULL AI
 	* name VARCHAR(50) NOT NULL
@@ -72,16 +67,6 @@ CREATE TABLE `Users` (
   `_created` datetime DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `Tokens` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token` text,
-  `_created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `userid` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_userid_users_id_idx` (`userid`),
-  CONSTRAINT `fk_userid_users_id` FOREIGN KEY (`userid`) REFERENCES `Users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 INSERT INTO `Categories` VALUES (1,'Science Fiction'),(2,'Fantasy'),(3,'Political Fiction'),(4,'Thriller'),(5,'Mystery');
