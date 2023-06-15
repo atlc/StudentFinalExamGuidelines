@@ -4,24 +4,29 @@
 #### 4 Hours
 
 ## Objective
-Your objective is to build a full-stack web project that interacts with a database of books.  You'll need to create the schema, a REST API that can receive requests and respond appropriately, and a React front-end that can display information from your API.
+Your objective is to build a full-stack web application that interacts with a database of books.  You'll need to create a REST API that can receive requests and respond appropriately, and a React front-end that can display information from your API.
 
 ### Project Setup
 You can use the [barebones-react-typescript-express](https://github.com/covalence-io/barebones-react-typescript-express) starter template as your starting point.  Go ahead and install any dependencies you think you might need, and ensure you get a clean development build running via `npm run dev` afterward.
 
-**Note** You can use your server/front-end utilities and middleware for this project, so migrate those files via copy/paste for this exam.
+**Note** You can use some of your server/front-end utilities and middlewares for this project, so migrate those files via copy/paste for this exam. Allowed folders/files:
+
  - Front-end
 	 - `utils/*`
+	 - `services/*`
 - Back-end
 	- `utils/*`
+ 	- `config/*` 	
 	- `middlewares/*`
+ - Shared
+ 	- You are allowed to create a `types` folder and define all your interfaces beforehand
+
+
+**PRO-TIP: When you have this starter project assembled, feel free to make your own github repo with *that* as your starter template. Upon a practice or actual attempt, you can clone that instead, saving yourself the hassle of recopying the above.**
 
 Attach this starter project to your own GitHub repository and let an instructor know your official start time.  You're required to do a commit *at least* every 30min during the exam.
 
-### Database
-Before you start the exam, you'll be need to write the schema yourself, populate it with some fake test data, and create the user with privileges for it to connect to your Express code.  You can use stored procedures, write your queries in Node MySQL, or use Knex if you feel comfortable. When it's time to begin getting data in your API.
-
-#### Tables
+### Database Tables (see [attached file](./bookstore-no-tokens.sql) for starting sql)
 * Users
 	* id INT PK NOT NULL AI
 	* email VARCHAR(60) NOT NULL
@@ -39,42 +44,9 @@ Before you start the exam, you'll be need to write the schema yourself, populate
 	* price DECIMAL(5,2) NOT NULL
 	* _created DATETIME DEFAULT CURRENT_TIMESTAMP
 
-#### Schema
-```
-CREATE TABLE `Categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `Books` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryid` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `author` varchar(100) NOT NULL,
-  `price` decimal(5,2) NOT NULL DEFAULT '0.00',
-  `_created` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `fk_categoryid_category_id_idx` (`categoryid`),
-  CONSTRAINT `fk_categoryid_category_id` FOREIGN KEY (`categoryid`) REFERENCES `Categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-);
-
-CREATE TABLE `Users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `role` varchar(25) DEFAULT 'admin',
-  `_created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `name` varchar(60) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `Categories` VALUES (1,'Science Fiction'),(2,'Fantasy'),(3,'Political Fiction'),(4,'Thriller'),(5,'Mystery');
-INSERT INTO `Books` VALUES (2,2,'The Hobbit','J.R.R. Tolkien',9.99,'2019-02-26 13:06:09'),(3,3,'1984','George Orwell',7.49,'2019-02-26 13:08:52'),(4,4,'The Outsider','Stephen King',20.63,'2019-02-26 13:11:07'),(5,5,'The Adventures of Sherlock Holmes','Sin Arthur Conan Doyle',8.99,'2019-02-26 13:12:33'),(11,1,'The Martian','Andy Weir',12.99,'2019-02-27 13:28:04');
-```
 
 ### REST API
-You'll need to connect your schema to your Node project, and have API routes that respond with the typical CRUD operations for books and getting categories.  You'll use auth routes for login and register.
+You'll need to connect your database to your backend, and have API routes that respond with the typical CRUD operations for books and getting categories.  You'll create auth routes for your login and registration functionalities.
 
 #### API Route Behaviors
 
@@ -122,4 +94,4 @@ Create an React site in the client folder of your project
 	* Clicking the edit button should send the user to the edit book component
 
 ## Submission Instructions
-You may want to commit as you go along. When you are finished, make sure you have PUSHed to github. You will not be able to push to the repository once the assessment is finished. 
+You'll need to commit every half hour as you go along. When you are finished, make sure you have pushed your final commits to github.
