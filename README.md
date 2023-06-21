@@ -22,7 +22,7 @@ You can use the [barebones-react-typescript-express](https://github.com/covalenc
  	- You are allowed to create a `types` folder and define all your interfaces beforehand
 
 
-**PRO-TIP: When you have this starter project assembled, feel free to make your own github repo with *that* as your starter template. Upon a practice or actual attempt, you can clone that instead, saving yourself the hassle of recopying the above.**
+**PRO-TIP: When you have this starter project assembled, feel free to make your own github repo with *that* as your starter template. Upon a practice or actual attempt, you can clone that instead, saving yourself the hassle of recopying the above.** Also feel free to get your Postman collection organized ahead of time.
 
 Attach this starter project to your own GitHub repository and let an instructor know your official start time.  You're required to do a commit *at least* every 30min during the exam.
 
