@@ -7,7 +7,7 @@
 Your objective is to build a full-stack web application that interacts with a database of books.  You'll need to create a REST API that can receive requests and respond appropriately, and a React front-end that can display information from your API.
 
 ### Project Setup
-You can use the [barebones-react-typescript-express](https://github.com/covalence-io/barebones-react-typescript-express) starter template as your starting point.  Go ahead and install any dependencies you think you might need, and ensure you get a clean development build running via `npm run dev` afterward.
+You can use the [ts-react-express-esbuild](https://github.com/covalence-io/ts-react-express-esbuild) starter template as your starting point.  Go ahead and install any dependencies you think you might need, and ensure you get a clean development build running via `npm run dev` afterward.
 
 **Note** You can use some of your server/front-end utilities and middlewares for this project, so migrate those files via copy/paste for this exam. Allowed folders/files:
 
