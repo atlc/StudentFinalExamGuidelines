@@ -51,7 +51,7 @@ You'll need to connect your database to your backend, and have API routes that r
 #### API Route Behaviors
 
 * Categories
-	* Support getting all categories, and getting a single category by id
+	* Support getting all categories
 * Books
 	* Support getting all books, creating a new book, and getting, updating, and deleting a single book
 	* Follow RESTful principles when defining routes for the above behaviors
